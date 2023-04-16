@@ -1,5 +1,7 @@
 // 4I36 Reo Hakuta
 
+package week1_astah_and_skeleton;
+
 public class Main1 {
   public static void main(String[] args) {
     MyCalc mc1;
