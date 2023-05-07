@@ -1,9 +1,4 @@
 {
   "java.debug.settings.onBuildFailureProceed": true,
-  "java.project.sourcePaths": [
-    "src/week2-reminder",
-    "src/week1-astah-and-skeleton",
-    "src/example",
-    "src"
-  ]
+  "java.project.sourcePaths": ["src"]
 }
