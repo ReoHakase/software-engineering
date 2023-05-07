@@ -56,10 +56,16 @@ public class ReminderList {
 
     // Remove the Reminder at the given index
     this.reminder[i] = null;
+
+    // Notify the View to update
+    this.view.update();
   }
 
   public void clear() {
     // Create new empty Reminder List
     this.reminder = new Reminder[10];
+
+    // Notify the View to update
+    this.view.update();
   }
 }
