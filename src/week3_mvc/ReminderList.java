@@ -4,7 +4,21 @@ package week3_mvc;
 
 public class ReminderList {
 
+  private View view;
+
+  public View getView() {
+    return view;
+  }
+
+  public void setView(View view) {
+    this.view = view;
+  }
+
   private Reminder[] reminder;
+
+  public Reminder[] getReminder() {
+    return reminder;
+  }
 
   public ReminderList() {
     this.reminder = new Reminder[10];
@@ -30,6 +44,9 @@ public class ReminderList {
 
     // Assign the given Reminder to the given index
     this.reminder[i] = r;
+
+    // Notify the View to update
+    this.view.update();
   }
 
   public void remove(int i) {
