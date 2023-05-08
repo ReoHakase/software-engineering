@@ -49,6 +49,18 @@ public class View implements ActionListener {
       // ・pはリマインダ優先度
       controller.add(i, n, p);
     }
+
+    if (e.getSource() == l1) {
+      // ダブルクリックで選択された項目の場所をsに代入
+      int s = l1.getSelectedIndex();
+      // リマインダのリストを取得
+      Reminder[] l = reminderList.getReminder();
+      // テキストフィールドにリマインダの情報をsetする
+      // （整数はString.valueOfで文字列に変換）
+      index.setText(String.valueOf(s));
+      name.setText(l[s].getName());
+      priority.setText(String.valueOf(l[s].getPriority()));
+    }
   }
 
   public View() {
@@ -60,6 +72,9 @@ public class View implements ActionListener {
 
     // リストを1つ作る(l1で参照)
     this.l1 = new List();
+
+    // リストl1のイベントリスナにView自身を登録する
+    l1.addActionListener(this);
 
     // f1にl1を追加する(場所はBorderLayout.CENTERに追加)
     f1.add(l1, BorderLayout.CENTER);
