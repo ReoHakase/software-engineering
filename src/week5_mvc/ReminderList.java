@@ -21,7 +21,7 @@ public class ReminderList {
   }
 
   public ReminderList() {
-    this.reminder = new Reminder[10];
+    this.reminder = new Reminder[20];
   }
 
   public void show() {
@@ -63,7 +63,7 @@ public class ReminderList {
 
   public void clear() {
     // Create new empty Reminder List
-    this.reminder = new Reminder[10];
+    this.reminder = new Reminder[20];
 
     // Notify the View to update
     this.view.update();
