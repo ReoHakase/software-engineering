@@ -15,7 +15,13 @@ public class Controller {
     r1.setName(n);
     r1.setPriority(p);
     // i番目にリマインダを追加する
-    reminderList.add(i, r1);
+    for (int shiftedIndex = i; shiftedIndex < reminderList.getReminder().length; shiftedIndex++) {
+      // もし追加先にすでにリマインダがあったら、追加先を後ろにずらす
+      if (reminderList.getReminder()[shiftedIndex] == null) {
+        reminderList.add(shiftedIndex, r1);
+        break;
+      }
+    }
   }
 
   public void remove(int i) {
