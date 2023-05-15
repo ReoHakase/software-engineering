@@ -25,7 +25,8 @@ public class Controller {
   }
 
   public void remove(int i) {
-
+    // i番目のリマインダを削除する
+    reminderList.remove(i);
   }
 
   public void clear() {

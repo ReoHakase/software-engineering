@@ -26,6 +26,11 @@ public class View implements ActionListener {
   // Frame型の変数f2(変数名は何でもよい)
   private Frame f2 = new Frame();
 
+  // Frame型の削除ボタン用フレーム
+  private Frame removerFrame;
+  private Choice removerIndexChoice;
+  private Button removeButton;
+
   // TextField型の変数index, name, priority(変数名は何でもよい)
   private Choice indexChoice = new Choice();
   private TextField name = new TextField();
@@ -49,6 +54,15 @@ public class View implements ActionListener {
       // ・nはリマインダの名前
       // ・pはリマインダ優先度
       controller.add(i, n, p);
+    }
+
+    // 削除ボタンの場合
+    if (e.getSource() == removeButton) {
+      // テキストフィールドから情報を取得するして整数に変換する
+      i = Integer.parseInt(removerIndexChoice.getSelectedItem());
+      // Controllerのメソッドremoveを呼び出す
+      // iは削除する配列の場所
+      controller.remove(i);
     }
 
     if (e.getSource() == l1) {
@@ -90,6 +104,16 @@ public class View implements ActionListener {
 
     // フレームを1つ作る(f2で参照)
     this.f2 = new Frame();
+
+    this.removerFrame = new Frame();
+    this.removerFrame.setLayout(new FlowLayout());
+    this.removerIndexChoice = new Choice();
+    this.removeButton = new Button("remove");
+    this.removeButton.addActionListener(this);
+    this.removerFrame.add(removerIndexChoice);
+    this.removerFrame.add(removeButton);
+    this.removerFrame.pack();
+    this.removerFrame.setVisible(true);
 
     // テキストフィールドを3つ作る(index, name, priorityで参照, 文字幅を指定するとよい)
     this.indexChoice = new Choice();
@@ -150,6 +174,14 @@ public class View implements ActionListener {
     for (int i = 0; i < l.length; i++) {
       indexChoice.add(String.valueOf(i));
     }
+
+    // 削除先の添え字のセレクタの項目を更新する
+    removerIndexChoice.removeAll();
+    // リマインダの配列の長さ分だけ項目を作る
+    for (int i = 0; i < l.length; i++) {
+      removerIndexChoice.add(String.valueOf(i));
+    }
+
     // メニュー項目が変わったので念のためフレームの部品を再配置する
     f2.pack();
   }
@@ -169,5 +201,4 @@ public class View implements ActionListener {
   public void setController(Controller controller) {
     this.controller = controller;
   }
-
 }
