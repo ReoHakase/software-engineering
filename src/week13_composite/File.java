@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class File implements Component {
 
-  private String name;
-  private String ext;
+  protected String name;
+  protected String ext;
 
   public File(String n, String e) {
     name = n;
