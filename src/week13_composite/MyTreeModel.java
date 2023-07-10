@@ -31,7 +31,7 @@ public class MyTreeModel implements TreeModel {
   }
 
   public boolean isLeaf(Object node) {
-    if (node instanceof File) {
+    if (node instanceof File || node instanceof Member) {
       return true;
     } else {
       return false;
