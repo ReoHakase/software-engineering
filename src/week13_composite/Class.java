@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Class implements Component {
 
-  private String name;
-  private ArrayList<Component> children;
+  protected String name;
+  protected ArrayList<Component> children;
 
   public Class(String n) {
     name = n;

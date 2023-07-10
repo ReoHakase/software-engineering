@@ -21,9 +21,9 @@ public class Member implements Component {
     // sort is either "field" or "method"
     switch (sort) {
       case "field":
-        return "  " + type + ": " + name;
+        return "  " + name + ": " + type;
       case "method":
-        return "  " + type + ": " + name + "()";
+        return "  " + name + "(): " + type;
       default:
         return "[Error] Invalid sort; a property \"sort\" must be either \"field\" or \"method\"";
     }
